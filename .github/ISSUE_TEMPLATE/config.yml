@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: General Discussion
+    url: https://github.com/yuriemori/codespace-demo/discussions
+    about: Please use discussions for general questions and support
