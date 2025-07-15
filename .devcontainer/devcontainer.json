@@ -1,0 +1,87 @@
+{
+    "name": "Java + TypeScript Development",
+    "image": "mcr.microsoft.com/devcontainers/universal:2",
+    "features": {
+        "ghcr.io/devcontainers/features/java:1": {
+            "version": "21",
+            "installMaven": true
+        },
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "lts"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vscjava.vscode-java-pack",
+                "redhat.java",
+                "vscjava.vscode-java-debug",
+                "vscjava.vscode-java-test",
+                "vscjava.vscode-maven",
+                "ms-vscode.vscode-typescript-next",
+                "bradlc.vscode-tailwindcss",
+                "esbenp.prettier-vscode",
+                "dbaeumer.vscode-eslint",
+                "ms-vscode.vscode-json",
+                "ms-vscode.hexeditor",
+                "eamodio.gitlens",
+                "ms-vsliveshare.vsliveshare"
+            ],
+            "settings": {
+                "java.configuration.runtimes": [
+                    {
+                        "name": "JavaSE-21",
+                        "path": "/usr/local/sdkman/candidates/java/current"
+                    }
+                ],
+                "java.compile.nullAnalysis.mode": "automatic",
+                "editor.formatOnSave": true,
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+                "eslint.validate": [
+                    "javascript",
+                    "javascriptreact",
+                    "typescript",
+                    "typescriptreact"
+                ],
+                "[javascript]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
+                },
+                "[typescript]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
+                },
+                "[json]": {
+                    "editor.defaultFormatter": "esbenp.prettier-vscode"
+                }
+            }
+        }
+    },
+    "forwardPorts": [3000, 8080, 8081, 5173],
+    "portsAttributes": {
+        "3000": {
+            "label": "Frontend Dev Server",
+            "onAutoForward": "notify"
+        },
+        "8080": {
+            "label": "Backend API Server",
+            "onAutoForward": "notify"
+        },
+        "8081": {
+            "label": "Backend Alt Port",
+            "onAutoForward": "notify"
+        },
+        "5173": {
+            "label": "Vite Dev Server",
+            "onAutoForward": "notify"
+        }
+    },
+    "postCreateCommand": "bash .devcontainer/post-create.sh",
+    "postAttachCommand": "echo 'Welcome to Java + TypeScript development environment!'",
+    "mounts": [
+        "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind"
+    ],
+    "privileged": true,
+    "containerEnv": {
+        "JAVA_HOME": "/usr/local/sdkman/candidates/java/current",
+        "MAVEN_HOME": "/usr/local/sdkman/candidates/maven/current"
+    }
+}
