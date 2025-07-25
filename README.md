@@ -1,5 +1,4 @@
 # Codespace Demo - Java + TypeScript
-
 Development environment demo using GitHub Codespaces with Java (Maven) and TypeScript support.
 
 ## 🚀 Quick Start
